@@ -7,6 +7,7 @@ use App\PassportTravel;
 use App\PersonalDetailHistory;
 use App\FamilyFriends;
 use App\EducationEmployment;
+use App\Medical;
 
 use Illuminate\Http\Request;
 
@@ -115,7 +116,10 @@ class CrewsController extends Controller
     {
         
         $save = PersonalDetailHistory::create($request->all());
-        return $save;
+        // return $save;
+
+        return redirect()->route('crews.familyFriends',['id'=>$request->project_id]);
+        
     }
 
     public function PersonalDetailHistory($id)
@@ -146,8 +150,10 @@ class CrewsController extends Controller
         
         $save = FamilyFriends::create($request->all());
        
-        return $save;
+        // return $save;
 
+
+        return redirect()->route('crews.educationEmployment',['id'=>$request->project_id]);
 
     }
 
@@ -173,9 +179,7 @@ class CrewsController extends Controller
         
         $save = EducationEmployment::create($request->all());
 
-        return $save;
-        
-        // return $save;
+        return redirect()->route('crews.medical',['id'=>$request->project_id]);
 
     }
 
@@ -184,12 +188,25 @@ class CrewsController extends Controller
         // need user validation befor peform this
         //
         
-        // return view('pages.forms.crews_details.passport_travel', compact('id','parts'));
-        return "5";
+        return view('pages.forms.crews_details.medical', compact('id','parts'));
+        // return "5";
+    }
+
+    public function medicalStore(Request $request)
+    {
+        // need user validation befor peform this
+        //
+        
+         $save = Medical::create($request->all());
+
+         return redirect()->route('crews.form',['id'=>$request->project_id]);
+
+
+        // return "5";
     }
 
     
-    
+
     public function detailsdb($id, $parts, Crews $crews)
     {
         // need user validation befor peform this

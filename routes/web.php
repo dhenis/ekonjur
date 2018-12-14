@@ -45,7 +45,6 @@ Route::get('one/{id}/form', ['as' => 'one.form', 'uses' => 'OneController@form']
 Route::resource('/crews','CrewsController');
 
 Route::get('crews/{id}/form',['as' => 'crews.form', 'uses' => 'CrewsController@form']);
-
 Route::get('crews/{id}/form/{parts}/parts/{trd}', 'CrewsController@detailsdb'); // shortenend
 
 
@@ -55,10 +54,8 @@ Route::get('crews/{id}/details/1/parts/', 'CrewsController@passportTravel')->nam
 Route::post('crews/details/1/parts/post', 'CrewsController@PassportTravelstore')->name('crews.PassportTravelstore'); 
 
 
-
 Route::get('crews/{id}/details/2/parts/', 'CrewsController@PersonalDetailHistory')->name('crews.personalDetailHistory'); 
 Route::post('crews/details/2/parts/post', 'CrewsController@PersonalDetailHistoryStore')->name('crews.PersonalDetailHistoryStore'); 
-
 
 
 Route::get('crews/{id}/details/3/parts/', 'CrewsController@familyFriends')->name('crews.familyFriends'); 

@@ -19,8 +19,6 @@ class CreateMedicalsTable extends Migration
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')->references('id')->on('projects');
             
-            $table->text('project_role')->nullable();
-            
             $table->string('has_medical')->nullable();
             $table->string('pay_treatment')->nullable();
             $table->string('treatment_organisation')->nullable();
