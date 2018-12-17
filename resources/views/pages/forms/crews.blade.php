@@ -16,7 +16,7 @@
                 {{-- {{$parts}} --}}
                
                 
-                <a href="{{route('crews.passportTravel',$id)}}" class="btn btn-primary" style="height:30%;width:30%;">Create a crew profile</a>				
+                <a href="{{route('crews.passportTravel',$id)}}" class="btn btn-primary " style="height:30%;width:30%;">Create a crew profile</a>				
 
                 <br/>
                 <br/>

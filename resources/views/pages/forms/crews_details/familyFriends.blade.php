@@ -23,7 +23,7 @@
       <div class="widget-content">
 
     
-      <div class="tab-pane " id="form2"><!--##2 -->
+      <div class="tab-pane " id="form2">
 
         <form  action="{{route('crews.familyFriendsStore')}}" method="POST" id="edit-profile" class="form-horizontal">
             {{ csrf_field() }}

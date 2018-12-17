@@ -29,7 +29,7 @@
       @endif
 
 
-      <div class="tab-pane " id="form4"><!--##4 -->
+      <div class="tab-pane " id="form4">
 								
       <form action="{{route('apply.store')}}" method="POST" id="edit-profile" class="form-horizontal">
         {{ csrf_field() }}

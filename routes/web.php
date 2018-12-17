@@ -76,3 +76,16 @@ Route::post('crews/details/5/parts/post', 'CrewsController@medicalStore')->name(
 Route::get('crews/{id}/details/main_menu/', [
     'as' => 'crews.details',
     'uses' => 'CrewsController@details' ]); // main menus
+
+
+Route::get('timetable/datatables','TimeTableController@dataTable')->name('timetable.data');
+
+Route::get('timetable/foo', 'TimeTableController@foo')->name('TimeTableController.foo'); 
+    
+
+// Route::resource('/one', 'OneController',['except'=>['index']]);
+Route::resource('/timetable', 'TimeTableController');
+
+Route::get('timetable/{id}/form',['as' => 'timetable.form', 'uses' => 'TimeTableController@form']);
+// Route::get('timetable/{id}/form/{parts}/parts/{trd}', 'CrewsController@detailsdb'); // shortenend
+

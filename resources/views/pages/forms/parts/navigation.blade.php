@@ -5,9 +5,11 @@
         {{-- {{url('/one/'.$id.'/form >><< ')}}
         {{Request::url() }} --}}
       <li class="{{(Request::url() == url('/one/'.$id.'/form'))?'active':null}}" ><a href="{{route('one.form',$id)}}" >Supporting Documents</a></li>
-       <li class="{{(Request::url() == url('/crews/'.$id.'/form'))?'active':null}}" ><a href="{{route('crews.form',$id)}}" >Crew Details</a></li>
+      <li class="{{(Request::url() == url('/crews/'.$id.'/form'))?'active':null}}" ><a href="{{route('crews.form',$id)}}" >Crew Details</a></li>
       {{-- <li class="{{(Request::url() == url('/two/'.$id.'/form'))?'active':null}}" ><a href="{{route('three.form',$id)}}" data-toggle="tab">form 3</a></li> --}}
-      <li  ><a href="#form4" data-toggle="tab">form 4</a></li> 
+      <li class="{{(Request::url() == url('/timetable/'.$id.'/form'))?'active':null}}" ><a href="{{route('timetable.form',$id)}}" >Timetable</a></li>
+      
+      {{-- <li  ><a href="#form4" data-toggle="tab">form 4</a></li>  --}}
       <li  ><a href="#form5" data-toggle="tab">form 5</a></li>
       <li  ><a href="#form6" data-toggle="tab">form 6</a></li>
       <li  ><a href="#form7" data-toggle="tab">form 7</a></li>

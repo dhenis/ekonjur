@@ -1,4 +1,3 @@
-
 <div class="span3 " id="navbar1" >
     <div class="widget "  >
 
@@ -92,3 +91,27 @@
             </div> <!-- /control-group -->
     </div>    
 </div>  
+
+@push('sidebar')
+<script> 
+    window.onscroll = function() {myFunction()};
+  
+    var navbar = document.getElementById("navbar1");
+    var sticky = navbar.offsetTop;
+  
+      // adding
+      var added = document.getElementById("added");
+      
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+        document.getElementById("added").style.display = "block";
+      } else {
+        navbar.classList.remove("sticky");
+        document.getElementById("added").style.display = "none";
+      }
+    }
+  </script>
+
+  
+@endpush
