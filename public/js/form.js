@@ -26,33 +26,49 @@ $('#modal-btn-save').click(function (event) {
     var form = $('#modal-body form'),
         url = form.attr('action'),
         method = $('input[name=_method]').val() == undefined ? 'POST' : 'PUT';
-
+    
     form.find('.help-block').remove();
     form.find('.form-group').removeClass('has-error');
 
+
     $.ajax({
         url : url,
-        method: method,
+        type: method,
         data : form.serialize(),
+        // dataType: 'json', // this bit here
         success: function (response) {
             form.trigger('reset');
-            $('#modal').modal('hide');
-            $('#datatable').DataTable().ajax.reload();
 
-            swal({
-                type : 'success',
-                title : 'Success!',
-                text : 'Data has been saved!'
-            });
+
+
+            // console.log(method, url);
+            // $('.open').html(response);
+            console.log(response);
+            
+            // $('#modal').modal('hide');
+            // $('#datatable').DataTable().ajax.reload();
+
+            // swal({
+            //     type : 'success',
+            //     title : 'Success!',
+            //     text : 'Data has been saved!'
+            // });
+
         },
         error : function (xhr) {
-            var res = xhr.responseJSON;
+            var res = JSON.parse(xhr.responseText);
+            
+            // var res1 = JSON.parse(xhr);
+            
+            // $( ".open" ).html( res );
+            // console.log(xhr);
             if ($.isEmptyObject(res) == false) {
+                
                 $.each(res.errors, function (key, value) {
                     $('#' + key)
-                        .closest('.form-group')
+                        .closest('.controls')
                         .addClass('has-error')
-                        .append('<span class="help-block"><strong>' + value + '</strong></span>');
+                        .append('<span class="help-block"  style="color:red" ><strong>' + value + '</strong></span>');
                 });
             }
         }
@@ -79,13 +95,14 @@ $('body').on('click', '.btn-delete', function (event) {
         if (result.value) {
             $.ajax({
                 url: url,
-                type: "POST",
+                type: "GET",
                 data: {
                     '_method': 'DELETE',
                     '_token': csrf_token
                 },
                 success: function (response) {
                     $('#datatable').DataTable().ajax.reload();
+                    
                     swal({
                         type: 'success',
                         title: 'Success!',
@@ -93,10 +110,12 @@ $('body').on('click', '.btn-delete', function (event) {
                     });
                 },
                 error: function (xhr) {
+                    alert(response);
                     swal({
                         type: 'error',
                         title: 'Oops...',
                         text: 'Something went wrong!'
+                        
                     });
                 }
             });
@@ -124,3 +143,4 @@ $('body').on('click', '.btn-show', function (event) {
 
     $('#modal').modal('show');
 });
+

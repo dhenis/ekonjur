@@ -78,14 +78,26 @@ Route::get('crews/{id}/details/main_menu/', [
     'uses' => 'CrewsController@details' ]); // main menus
 
 
-Route::get('timetable/datatables','TimeTableController@dataTable')->name('timetable.data');
+Route::get('timetable/{project_id}/datatables','TimeTableController@dataTable')->name('timetable.data');
 
-Route::get('timetable/foo', 'TimeTableController@foo')->name('TimeTableController.foo'); 
     
 
 // Route::resource('/one', 'OneController',['except'=>['index']]);
-Route::resource('/timetable', 'TimeTableController');
 
-Route::get('timetable/{id}/form',['as' => 'timetable.form', 'uses' => 'TimeTableController@form']);
+
+Route::get('timetable/{project_id}/form',['as' => 'timetable.form', 'uses' => 'TimeTableController@form']);
+
+Route::get('timetable/{project_id}/form',['as' => 'timetable.form', 'uses' => 'TimeTableController@form']);
+Route::get('timetable/{project_id}/update',['as' => 'timetable.form', 'uses' => 'TimeTableController@form']);
 // Route::get('timetable/{id}/form/{parts}/parts/{trd}', 'CrewsController@detailsdb'); // shortenend
 
+Route::get('timetable/{project_id}/modals/create',['as' => 'timetable.modalForm', 'uses' => 'TimeTableController@modalCreate']);
+Route::get('timetable/{project_id}/modals/edit/{id}',['as' => 'timetable.modalEdit', 'uses' => 'TimeTableController@modalEdit']);
+Route::get('timetable/{project_id}/modals/{id}/delete/',['as' => 'timetable.modalDestroy', 'uses' => 'TimeTableController@modalDestroy']);
+
+// Route::post('timetable/modals/store', 'TimeTableController@modalStore')->name('timetable.modalStore'); 
+Route::post('timetable/modals/store', ['as' => 'timetable.modalStore', 'uses' => 'TimeTableController@modalStore']);
+Route::put('timetable/modals/{id}/update/', ['as' => 'timetable.modalUpdate', 'uses' => 'TimeTableController@modalUpdate']);
+// Route::post('timetable/modals/{id}/destroy/', ['as' => 'timetable.destroy', 'uses' => 'TimeTableController@modalDestroy']);
+
+Route::resource('timetable', 'TimeTableController');

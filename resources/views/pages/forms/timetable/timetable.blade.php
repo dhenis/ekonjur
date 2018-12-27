@@ -12,11 +12,12 @@
             </div> <!-- /widget-header -->    
             <div class="widget-content">
                 
-                @include('pages.forms.parts.navigation')
-                {{-- {{$parts}} --}}
+        
+                @include('layouts.navigation.main_navigation')
+                
                
                 
-            <a href="{{route('timetable.create')}}" class="btn btn-primary modal-show" style="height:30%;width:30%;">Create a crew profile</a>				
+            <a href="{{route('timetable.modalForm',$project_id)}}" class="btn btn-primary modal-show" style="height:30%;width:30%;">Create a crew profile</a>				
 
                 <br/>
                 <br/>
@@ -60,7 +61,7 @@
             responsive: true,
             processing: true,
             serverSide: true,
-            ajax: "{{ route('timetable.data') }}",
+            ajax: "{{ route('timetable.data',['project_id'=>$project_id]) }}",
             columns: [
                 // {data: 'DT_Row_Index', name: 'id'},
                 {data: 'date', name: 'date'},

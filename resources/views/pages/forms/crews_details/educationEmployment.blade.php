@@ -7,8 +7,10 @@
     <div class="widget " ></div>
 
 </div>
+    
+    @include('layouts.navigation.sidebar_navigation')
 
-    @include('pages/forms/crews_details/parts/sidebar_navigation')        
+    {{-- @include('pages/forms/crews_details/parts/sidebar_navigation')         --}}
         
     <div class="span9">
 

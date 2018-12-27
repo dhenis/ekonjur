@@ -22,6 +22,12 @@ class Project extends Model
         return $this->hasMany()(One::class);        
 
     }
+    
+    public function timetable(){
+
+        return $this->hasMany()(TimeTable::class);        
+
+    }
 
     
 }

@@ -23,8 +23,10 @@ class TimeTable extends Model
         'location',
         'activity',
         'status'
-
-
-
     ];
+
+    public function project()
+    {
+        return $this->belongsTo()(Project::class);
+    }
 }

@@ -10,6 +10,8 @@
 <!-- Datatables -->
 <link href="{{ asset('assets/vendor/datatables/datatables.min.css') }}" rel="stylesheet">
 
+{{-- <link href="{{ asset('assets/vendor/datepicker/pikaday.css') }}" rel="stylesheet"> --}}
+
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('css/bootstrap-responsive.min.css')}}" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
@@ -93,6 +95,10 @@
   <!-- /extra-inner -->
 </div>
 
+
+@include('layouts.modals_layout._modal')
+
+
 <div class="footer">
   <div class="footer-inner">
     <div class="container">
@@ -112,6 +118,8 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="{{asset('js/jquery-1.7.2.min.js')}}"></script>
+{{-- <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script> --}}
+
 <script src="{{asset('js/excanvas.min.js')}}"></script>
 <script src="{{asset('js/chart.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/bootstrap.js')}}"></script>
@@ -122,10 +130,17 @@
 
 
 <!-- Datatables -->
+<!-- Sweetalert2 -->
+<script src="{{ asset('assets/vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
+
 <script src="{{ asset('assets/vendor/datatables/datatables.min.js') }}"></script>
+
 <script src="{{ asset('js/form.js') }}"></script>
+
+{{-- <script src="{{ asset('assets/vendor/datepicker/pikaday.js') }}"></script> --}}
 
 @stack('scripts')
 @stack('sidebar')
+
 </body>
 </html>

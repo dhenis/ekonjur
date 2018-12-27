@@ -12,7 +12,7 @@
             </div> <!-- /widget-header -->    
             <div class="widget-content">
                 
-                @include('pages.forms.parts.navigation')
+                @include('layouts.navigation.main_navigation')
                 {{-- {{$parts}} --}}
                
                 
